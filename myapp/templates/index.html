@@ -1,0 +1,37 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/jquery-ui-dist/jquery-ui.min.css">
+    <script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/homework.css' %}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="front-page">
+        <button id="btn_to_upload">xml文件上传</button>
+        <br>
+        <button id="btn_to_parse">解析</button>
+        <br>
+        <button id="btn_to_db_demo">数据库测试</button>
+        <br>
+        <button id="btn_to_display">数据展示</button>
+    </div>
+</body>
+
+<script>
+    $(function() {
+        $("#btn_to_upload").click(function() {
+            window.location.href = "http://101.35.165.170:8001/showUpload";
+        })
+        $("#btn_to_parse").click(function() {
+            window.location.href = "http://101.35.165.170:8001/parse";
+        })
+        $("#btn_to_db_demo").click(function() {
+            window.location.href = "http://101.35.165.170:8001/dbDemo"
+        })
+        $("#btn_to_display").click(function() {
+            window.location.href = "http://101.35.165.170:8001/display"
+        })
+    })
+</script>

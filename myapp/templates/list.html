@@ -1,0 +1,26 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/jquery-ui-dist/jquery-ui.min.css">
+    <script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>上传成功</div>
+    <div>
+        <button id="btn_to_list">12</button>
+    </div>
+</body>
+
+<script>
+    $(function() {
+        $("#btn_to_list").click(function() {
+            $.ajax({
+                url: "http://101.35.165.170:8001/listFile",
+                type: "GET",
+                success: function(resp) {
+                    console.log(resp);
+                }
+            });
+        })
+    })
+</script>

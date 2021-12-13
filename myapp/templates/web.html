@@ -1,0 +1,17 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/jquery-ui-dist/jquery-ui.min.css">
+    <script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/homework.css' %}">
+</head>
+
+<body style="margin: 0">
+    <div id="db_homework_12345678"></div>
+    <script type="module">
+        import {DbHomework} from "{% static 'js/homework.js' %}";          
+        $(document).ready(function() {
+            let db_homework = new DbHomework("db_homework_12345678");
+        });
+    </script>
+</body>
