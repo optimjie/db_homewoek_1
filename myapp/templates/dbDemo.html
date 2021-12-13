@@ -21,5 +21,20 @@
             <input type="text" name="parent_id">
             <input type="submit" value="添加">
         </form>
+        <button id="btn_to_delete_all">删除表中所有数据</button>
     </div>
 </body>
+
+<script>
+    $(function() {
+        $("#btn_to_delete_all").click(function() {
+            $.ajax({
+                url: "http://101.35.165.170:8001/deleteAll",
+                type: "GET",
+                success: function(resp) {
+                    console.log(resp);
+                }
+            });
+        })
+    })
+</script>

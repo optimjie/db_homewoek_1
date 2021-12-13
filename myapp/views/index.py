@@ -129,6 +129,10 @@ class Node:
     label = ''
     children = []
 
+    def __init__(self, label, children):
+        self.label = label
+        self.children = children
+
 class NodeInDb:
     placeName = ''
     placeId = ''
@@ -146,9 +150,11 @@ def display(request):
     nodes = Place.objects.all()
 
     # 还考虑啥扩展性啊，直接暴力就完事了
-    a = []
-    b = []
-    c = []
+    a = []  # 一级
+    b = []  # 二级
+    c = []  # 三级
+
+    mp = {}
 
     # data是一个数组，每一个元素是包含下面的键值对
     data = [{'placeName': node.placeName, 'placeId': node.placeId, 'parent': node.parent} for node in nodes]
@@ -158,14 +164,37 @@ def display(request):
         print(v['placeName'])
     """
     for v in data:
-        len = len(v['placeId'])
+        id_len = len(v['placeId'])
         placeName = v['placeName']
         placeId = v['placeId']
         parent = v['parent']
-        if len == 2:
-            a.append(NodeInDb(placeName, ))
-
+        mp[placeId] = placeName
+        if id_len == 2:
+            a.append(NodeInDb(placeName, placeId, parent))
+        elif id_len == 4:
+            b.append(NodeInDb(placeName, placeId, parent))
+        else:
+            c.append(NodeInDb(placeName, placeId, parent))
     
+    for a_v in a:
+        res.append({'label': a_v.placeName, 'children': []})
+
+    for b_v in b:
+        parentName = mp[b_v.parent]
+        for res_v in res:
+            if parentName == res_v['label']:
+                res_v['children'].append({'label': b_v.placeName, 'children': []})
+                break
+
+    for c_v in c:
+        parentName = mp[c_v.parent]
+        for res_v in res:
+            children = res_v['children']
+            for children_v in children:
+                if parentName == children_v['label']:
+                    children_v['children'].append({'label': c_v.placeName, 'children': []})
+                    break
+
     
     return JsonResponse({
         'data': res,
@@ -179,4 +208,16 @@ def treeList(request):
     
     return JsonResponse({
         'data': nodes,
+    })
+
+# 删除表中所有数据
+
+def deleteAll(request):
+    nodes = Place.objects.all()
+    for node in nodes:
+        id = node.id
+        Place.objects.filter(id=id).delete()
+
+    return JsonResponse({
+        'message': 'success',
     })

@@ -16,6 +16,8 @@
         <button id="btn_to_db_demo">数据库测试</button>
         <br>
         <button id="btn_to_display">数据展示</button>
+        <br>
+        <button id="btn_to_list">测试</button>
     </div>
 </body>
 
@@ -32,6 +34,15 @@
         })
         $("#btn_to_display").click(function() {
             window.location.href = "http://101.35.165.170:8001/display"
+        })
+        $("#btn_to_list").click(function() {
+            $.ajax({
+                url: "http://101.35.165.170:8001/display",
+                type: "GET",
+                success: function(resp) {
+                    console.log(resp);
+                }
+            });
         })
     })
 </script>

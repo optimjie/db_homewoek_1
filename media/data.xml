@@ -1,6 +1,6 @@
 <root>
 	<prov id="110000" text="北京市">
-		<city id="110100" text="市辖区">
+		<city id="110100" text="北京市_市辖区">
 			<county id="110101" text="东城区"></county>
 			<county id="110102" text="西城区"></county>
 			<county id="110103" text="崇文区"></county>
@@ -18,13 +18,13 @@
 			<county id="110116" text="怀柔区"></county>
 			<county id="110117" text="平谷区"></county>
 		</city>
-		<city id="110200" text="县">
+		<city id="110200" text="北京市_县">
 			<county id="110228" text="密云县"></county>
 			<county id="110229" text="延庆县"></county>
 		</city>
 	</prov>
 	<prov id="120000" text="天津市">
-		<city id="120100" text="市辖区">
+		<city id="120100" text="天津市_市辖区">
 			<county id="120101" text="和平区"></county>
 			<county id="120102" text="河东区"></county>
 			<county id="120103" text="河西区"></county>
@@ -41,7 +41,7 @@
 			<county id="120114" text="武清区"></county>
 			<county id="120115" text="宝坻区"></county>
 		</city>
-		<city id="120200" text="县">
+		<city id="120200" text="天津市_县">
 			<county id="120221" text="宁河县"></county>
 			<county id="120223" text="静海县"></county>
 			<county id="120225" text="蓟县"></county>
@@ -882,7 +882,7 @@
 		</city>
 	</prov>
 	<prov id="310000" text="上海市">
-		<city id="310100" text="市辖区">
+		<city id="310100" text="上海市_市辖区">
 			<county id="310101" text="黄浦区"></county>
 			<county id="310103" text="卢湾区"></county>
 			<county id="310104" text="徐汇区"></county>
@@ -902,7 +902,7 @@
 			<county id="310119" text="南汇区"></county>
 			<county id="310120" text="奉贤区"></county>
 		</city>
-		<city id="310200" text="县">
+		<city id="310200" text="上海市_县">
 			<county id="310230" text="崇明县"></county>
 		</city>
 	</prov>
@@ -2512,7 +2512,7 @@
 		</city>
 	</prov>
 	<prov id="500000" text="重庆市">
-		<city id="500100" text="市辖区">
+		<city id="500100" text="重庆市_市辖区">
 			<county id="500101" text="万州区"></county>
 			<county id="500102" text="涪陵区"></county>
 			<county id="500103" text="渝中区"></county>
@@ -2529,7 +2529,7 @@
 			<county id="500114" text="黔江区"></county>
 			<county id="500115" text="长寿区"></county>
 		</city>
-		<city id="500200" text="县">
+		<city id="500200" text="重庆市_县">
 			<county id="500222" text="綦江县"></county>
 			<county id="500223" text="潼南县"></county>
 			<county id="500224" text="铜梁县"></county>
